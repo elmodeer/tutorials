@@ -26,7 +26,7 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
 class KeycloakSecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter {
 
     @Value("${custom.keycloak.role}")
-    String keyCloackRole;
+    String keyCloakRole;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) {
@@ -53,7 +53,7 @@ class KeycloakSecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter
                 .antMatchers("/external**" , "/js/**", "/css/**", "/images/**")
                 .permitAll()
                 .anyRequest()
-                .hasRole(keyCloackRole)
+                .hasRole(keyCloakRole)
                 .and()
                 .exceptionHandling()
                 .accessDeniedPage("/?denied")
