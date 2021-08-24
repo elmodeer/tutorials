@@ -14,12 +14,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Order(1)
 public class BasicAuthSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Value("${spring.security.user.name}")
-    String username;
-
-    @Value("${spring.security.user.password}")
-    String password;
-
     @Value("${spring.security.basic.matcher:/actuator/**}")
     String endpointMatcher;
 
