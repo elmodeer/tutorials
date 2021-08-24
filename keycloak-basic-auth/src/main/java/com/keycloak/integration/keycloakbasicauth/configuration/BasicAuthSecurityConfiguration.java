@@ -35,10 +35,4 @@ public class BasicAuthSecurityConfiguration extends WebSecurityConfigurerAdapter
                 .httpBasic();
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser(username).password("{noop}"+password).roles("BASIC");
-    }
-
 }
