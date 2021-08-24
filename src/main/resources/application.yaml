@@ -1,0 +1,35 @@
+# for all properties available refer to:
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+
+server:
+    port: 8010
+
+spring:
+    security:
+        basic:
+            enabled: true
+            matcher: /actuator/**
+        user:
+            name: admin
+            password: admin
+
+custom.keycloak.role: test-user
+keycloak:
+    enable-basic-auth: true
+    auth-server-url: http://localhost:8083/auth
+    realm: master
+    resource: test-clinet
+    credentials:
+        secret: 0e00874a-d6c3-426c-9704-43b88ecd448a
+    ssl-required: external
+    verify-token-audience: false
+    use-resource-role-mappings: true
+    principal-attribute: preferred_username
+
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: metrics,health,info
