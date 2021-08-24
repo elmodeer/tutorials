@@ -50,8 +50,6 @@ class KeycloakSecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.authorizeRequests()
-                .antMatchers("/external**" , "/js/**", "/css/**", "/images/**")
-                .permitAll()
                 .anyRequest()
                 .hasRole(keyCloakRole)
                 .and()
